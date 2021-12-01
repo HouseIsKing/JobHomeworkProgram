@@ -1,16 +1,19 @@
 ﻿namespace JobHomeworkProgram
 {
-    class Program
+    public class Program
     {
-        static List<int>? getFibonachiList(int length)
+        public static List<int>? GetFibonachiList(int length)
         {
             if (length <= 0)
                 return null;
             List<int> result = new();
             result.Add(1);
-            for (int i = 1; i < length; i++)
+            if (length == 1)
+                return result;
+            result.Add(1);
+            for (int i = 2; i < length; i++)
             {
-                result.Add(i + result[i - 1]);
+                result.Add(result[i-2] + result[i - 1]);
             }
             return result;
         }
@@ -21,7 +24,7 @@
             {
                 len = int.Parse(args[0]);
             }
-            List<int>? fibList = getFibonachiList(len);
+            List<int>? fibList = GetFibonachiList(len);
             if (fibList == null)
                 throw new Exception();
             for (int i = 0; i < len; i++)
