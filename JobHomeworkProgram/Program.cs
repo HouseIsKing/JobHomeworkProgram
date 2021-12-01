@@ -17,9 +17,9 @@
         static void Main(string[] args)
         {
             int len = 10;
-            if(args.Length == 2)
+            if(args.Length >= 1)
             {
-                len = int.Parse(args[1]);
+                len = int.Parse(args[0]);
             }
             List<int>? fibList = getFibonachiList(len);
             if (fibList == null)
